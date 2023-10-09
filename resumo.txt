@@ -1,0 +1,36 @@
+Resumo: Relógios Lógicos
+Atividade de Sistemas Distribuídos
+Relógios lógicos desempenham um papel essencial em sistemas distribuídos, nos
+quais várias entidades de processamento independentes precisam coordenar suas ações
+em uma rede de computadores. Tais sistemas podem variar desde data centers
+geograficamente dispersos até dispositivos IoT em grande escala. Os relógios lógicos
+oferecem uma abstração crucial para enfrentar os desafios de sincronização e ordenação
+de eventos em ambientes distribuídos, superando as complexidades das discrepâncias
+temporais entre os dispositivos.
+Os relógios de Lamport, concebidos por Leslie Lamport em 1978, representam uma
+abordagem amplamente empregada para a ordenação de eventos em sistemas distribuídos.
+Cada processo mantém um contador local que é incrementado toda vez que ocorre um
+evento. Ao enviar uma mensagem, um processo inclui o valor corrente do seu contador
+local. Quando uma mensagem é recebida, o processo destinatário atualiza seu contador
+local para refletir a ordenação adequada dos eventos.
+Os relógios de Lamport são simples e efetivos, embora não assegurem uma ordenação
+precisa em situações onde eventos não estão diretamente relacionados por meio de
+mensagens.
+Os relógios vetoriais representam uma evolução dos relógios de Lamport, projetados para
+fornecer uma ordenação mais precisa de eventos em sistemas distribuídos. Cada processo
+mantém um vetor de contadores, um para cada processo no sistema. Quando um evento
+ocorre, o contador correspondente ao processo é incrementado. Ao enviar uma mensagem,
+o vetor de relógio atual é incorporado. Ao receber uma mensagem, o processo destinatário
+combina os vetores de relógio do remetente e do receptor para garantir uma ordenação
+precisa de eventos.
+Os relógios vetoriais são particularmente úteis em situações em que eventos concorrentes
+precisam ser estritamente ordenados.
+Além dessas categorias primárias, existem outras abordagens, como relógios
+físicos, que podem ser empregados em sistemas distribuídos para proporcionar uma
+percepção mais precisa do tempo, mas geralmente são mais desafiadores de implementar.
+Resumidamente, os relógios lógicos desempenham um papel crucial na
+coordenação e ordenação de eventos em sistemas distribuídos, resolvendo os desafios de
+sincronização e concorrência em ambientes distribuídos. Eles representam uma abstração
+valiosa para o desenvolvimento de sistemas distribuídos robustos e confiáveis,
+possibilitando que os processos coordenem suas atividades de maneira eficaz,
+independentemente das variações temporais entre os diferentes componentes do sistema.
